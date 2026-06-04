@@ -5,22 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="《不急着长大》歌曲页面，Tim 作词，小鱼作曲。"
+      content="《不急着长大》时一2026店庆歌曲页面。"
     />
-    <title>不急着长大 - SHIYI 2026</title>
+    <title>不急着长大 - 时一2026店庆</title>
     <style>
       :root {
         color-scheme: dark;
-        --ink: #fff8e9;
-        --soft: #eadfc5;
-        --muted: #bfb49d;
-        --deep: #09110e;
-        --river: #1e5b5a;
-        --moss: #35513e;
-        --amber: #d49a49;
-        --ember: #9e4f32;
-        --line: rgba(255, 248, 233, 0.18);
-        --panel: rgba(9, 17, 14, 0.68);
+        --cover-image: url("https://openisle-1307107697.cos.ap-guangzhou.myqcloud.com/shiyi2026/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20260604152642_70_966.png");
+        --ink: #fff9ec;
+        --soft: #e8dfce;
+        --muted: #ada491;
+        --deep: #070c0a;
+        --night: #101714;
+        --bronze: #c7a66f;
+        --line: rgba(236, 226, 207, 0.18);
+        --panel: rgba(7, 12, 10, 0.66);
       }
 
       * {
@@ -35,11 +34,11 @@
         margin: 0;
         min-height: 100vh;
         color: var(--ink);
-        background:
-          linear-gradient(180deg, #09110e 0%, #12231e 46%, #0b1412 100%);
+        background: linear-gradient(180deg, var(--deep) 0%, var(--night) 50%, #080b0a 100%);
         font-family:
           Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
           "PingFang SC", "Microsoft YaHei", "Segoe UI", sans-serif;
+        letter-spacing: 0;
       }
 
       body::before {
@@ -47,9 +46,9 @@
         inset: 0;
         z-index: -2;
         background:
-          linear-gradient(90deg, rgba(9, 17, 14, 0.96) 0%, rgba(9, 17, 14, 0.6) 52%, rgba(9, 17, 14, 0.18) 100%),
-          linear-gradient(180deg, rgba(9, 17, 14, 0.12) 0%, rgba(9, 17, 14, 0.92) 100%),
-          url("assets/buji-zhe-zhangda-cover.png") center / cover no-repeat;
+          linear-gradient(90deg, rgba(7, 12, 10, 0.96) 0%, rgba(7, 12, 10, 0.7) 48%, rgba(7, 12, 10, 0.32) 100%),
+          linear-gradient(180deg, rgba(7, 12, 10, 0.1) 0%, rgba(7, 12, 10, 0.76) 66%, #070c0a 100%),
+          var(--cover-image) center / cover no-repeat;
         content: "";
       }
 
@@ -59,90 +58,82 @@
         z-index: -1;
         pointer-events: none;
         background-image:
-          linear-gradient(rgba(255, 248, 233, 0.035) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(255, 248, 233, 0.025) 1px, transparent 1px);
-        background-size: 56px 56px;
-        mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.55), transparent 72%);
+          linear-gradient(rgba(236, 226, 207, 0.025) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(236, 226, 207, 0.018) 1px, transparent 1px);
+        background-size: 64px 64px;
+        mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.52), transparent 74%);
         content: "";
       }
 
-      a {
-        color: inherit;
-      }
-
       .hero {
-        min-height: 92vh;
+        min-height: 90vh;
         display: grid;
         align-items: center;
-        padding: 56px max(24px, 7vw) 40px;
+        padding: 58px max(24px, 7vw) 34px;
       }
 
       .hero-inner {
-        width: min(1120px, 100%);
+        width: min(900px, 100%);
       }
 
       .eyebrow {
         display: inline-flex;
-        gap: 10px;
         align-items: center;
+        gap: 12px;
         margin: 0 0 22px;
         color: var(--soft);
-        font-size: 14px;
-        font-weight: 700;
-        letter-spacing: 0.16em;
-        text-transform: uppercase;
+        font-size: 15px;
+        font-weight: 650;
       }
 
       .eyebrow::before {
         width: 42px;
         height: 1px;
-        background: var(--amber);
+        background: var(--bronze);
         content: "";
       }
 
       h1 {
         max-width: 780px;
         margin: 0;
-        font-size: clamp(56px, 11vw, 140px);
+        font-size: clamp(56px, 10vw, 132px);
         font-weight: 850;
         line-height: 0.98;
         letter-spacing: 0;
+        text-wrap: balance;
       }
 
       .subtitle {
-        max-width: 650px;
-        margin: 28px 0 0;
+        max-width: 640px;
+        margin: 26px 0 0;
         color: var(--soft);
-        font-size: clamp(18px, 2.1vw, 24px);
-        line-height: 1.8;
+        font-size: clamp(18px, 2vw, 24px);
+        line-height: 1.82;
       }
 
       .credits {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 14px;
-        margin: 32px 0 0;
-        color: var(--muted);
-        font-size: 15px;
-      }
-
-      .credits span {
-        padding: 8px 12px;
+        display: inline-flex;
+        margin: 30px 0 0;
+        padding: 10px 14px;
         border: 1px solid var(--line);
         border-radius: 8px;
-        background: rgba(255, 248, 233, 0.06);
-        backdrop-filter: blur(12px);
+        color: var(--soft);
+        background: rgba(236, 226, 207, 0.065);
+        font-size: 15px;
+        backdrop-filter: blur(14px);
       }
 
       .player {
         width: min(680px, 100%);
-        margin-top: 42px;
+        margin-top: 40px;
         padding: 18px;
         border: 1px solid var(--line);
         border-radius: 8px;
-        background: var(--panel);
-        box-shadow: 0 24px 80px rgba(0, 0, 0, 0.36);
-        backdrop-filter: blur(18px);
+        background:
+          linear-gradient(135deg, rgba(236, 226, 207, 0.1), rgba(236, 226, 207, 0.035)),
+          var(--panel);
+        box-shadow: 0 28px 90px rgba(0, 0, 0, 0.42);
+        backdrop-filter: blur(20px);
       }
 
       .player-top {
@@ -159,11 +150,12 @@
         place-items: center;
         border: 0;
         border-radius: 999px;
-        color: #101915;
-        background: var(--amber);
+        color: #111611;
+        background: linear-gradient(135deg, #ecddb9, var(--bronze));
         font-size: 19px;
         font-weight: 800;
         cursor: pointer;
+        box-shadow: 0 10px 26px rgba(199, 166, 111, 0.24);
       }
 
       .track-title {
@@ -199,42 +191,43 @@
         margin-top: 18px;
         overflow: hidden;
         border-radius: 999px;
-        background: rgba(255, 248, 233, 0.16);
+        background: rgba(236, 226, 207, 0.16);
       }
 
       .progress {
         width: 0%;
         height: 100%;
         border-radius: inherit;
-        background: linear-gradient(90deg, var(--amber), #ffe2a8);
+        background: linear-gradient(90deg, var(--bronze), #eee0bd);
       }
 
       .content {
-        position: relative;
-        display: grid;
-        grid-template-columns: minmax(0, 0.74fr) minmax(320px, 0.26fr);
-        gap: 48px;
-        width: min(1120px, calc(100% - 48px));
+        width: min(900px, calc(100% - 48px));
         margin: 0 auto;
-        padding: 54px 0 72px;
+        padding: 42px 0 76px;
       }
 
       .lyrics {
         display: grid;
-        gap: 22px;
+        gap: 28px;
+        padding: 30px clamp(20px, 4vw, 46px);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background:
+          linear-gradient(180deg, rgba(236, 226, 207, 0.08), rgba(236, 226, 207, 0.03)),
+          rgba(7, 12, 10, 0.58);
+        box-shadow: 0 26px 90px rgba(0, 0, 0, 0.32);
+        backdrop-filter: blur(18px);
       }
 
       .section {
-        border-top: 1px solid var(--line);
-        padding-top: 24px;
+        padding-top: 28px;
+        border-top: 1px solid rgba(236, 226, 207, 0.13);
       }
 
-      .section h2 {
-        margin: 0 0 14px;
-        color: var(--amber);
-        font-size: 15px;
-        font-weight: 800;
-        letter-spacing: 0.12em;
+      .section:first-child {
+        padding-top: 0;
+        border-top: 0;
       }
 
       .section p {
@@ -242,42 +235,6 @@
         color: var(--soft);
         font-size: clamp(19px, 2vw, 25px);
         line-height: 2.06;
-      }
-
-      .side {
-        position: sticky;
-        top: 24px;
-        align-self: start;
-        border: 1px solid var(--line);
-        border-radius: 8px;
-        overflow: hidden;
-        background: rgba(9, 17, 14, 0.7);
-        box-shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
-      }
-
-      .side img {
-        display: block;
-        width: 100%;
-        aspect-ratio: 4 / 5;
-        object-fit: cover;
-      }
-
-      .side-info {
-        padding: 18px;
-      }
-
-      .side-info p {
-        margin: 0;
-        color: var(--muted);
-        font-size: 14px;
-        line-height: 1.8;
-      }
-
-      .side-info strong {
-        display: block;
-        margin-bottom: 8px;
-        color: var(--ink);
-        font-size: 18px;
       }
 
       footer {
@@ -302,9 +259,9 @@
       @media (max-width: 840px) {
         body::before {
           background:
-            linear-gradient(180deg, rgba(9, 17, 14, 0.68) 0%, rgba(9, 17, 14, 0.96) 78%),
-            url("assets/buji-zhe-zhangda-cover.png") center top / auto 58vh no-repeat,
-            #09110e;
+            linear-gradient(180deg, rgba(7, 12, 10, 0.42) 0%, rgba(7, 12, 10, 0.96) 74%, #070c0a 100%),
+            var(--cover-image) center top / auto 60vh no-repeat,
+            #070c0a;
         }
 
         .hero {
@@ -313,19 +270,8 @@
         }
 
         .content {
-          grid-template-columns: 1fr;
-          gap: 34px;
           width: min(100% - 40px, 680px);
           padding-top: 34px;
-        }
-
-        .side {
-          position: static;
-          order: -1;
-        }
-
-        .side img {
-          aspect-ratio: 16 / 10;
         }
       }
 
@@ -359,28 +305,26 @@
     <main>
       <section class="hero" aria-label="不急着长大">
         <div class="hero-inner">
-          <p class="eyebrow">SHIYI 2026</p>
+          <p class="eyebrow">时一2026店庆</p>
           <h1>不急着长大</h1>
           <p class="subtitle">
             河边还有风，杯里还有梦。今晚不赶路，把没说完的话留到下次再说。
           </p>
-          <div class="credits" aria-label="创作信息">
-            <span>Tim 作词</span>
-            <span>小鱼 作曲</span>
-          </div>
+          <p class="credits">Tim 作词 · 小鱼 作曲</p>
 
           <section class="player" aria-label="音乐播放器">
             <audio
               id="song"
               preload="auto"
               autoplay
+              playsinline
               src="https://openisle-1307107697.cos.ap-guangzhou.myqcloud.com/shiyi2026/%E4%B8%8D%E6%80%A5%E7%9D%80%E9%95%BF%E5%A4%A7%20-%202026%3A6%3A3%20%E4%B8%8B%E5%8D%8810.57.mp3"
             ></audio>
             <div class="player-top">
               <button class="play" id="play" type="button" aria-label="播放">▶</button>
               <div class="track-title">
                 <strong>不急着长大</strong>
-                <small>Tim 作词 · 小鱼 作曲</small>
+                <small>河边还有风，杯里还有梦</small>
               </div>
               <div class="time" id="time">0:00 / 0:00</div>
             </div>
@@ -395,7 +339,6 @@
       <section class="content" aria-label="歌词">
         <div class="lyrics">
           <article class="section">
-            <h2>主歌 1</h2>
             <p>
               河里的石头被时间磨圆<br />
               我们见了不止一面<br />
@@ -405,7 +348,6 @@
           </article>
 
           <article class="section">
-            <h2>渐进</h2>
             <p>
               那天风吹过大树下面<br />
               篝火烧得迷住了双眼<br />
@@ -415,7 +357,6 @@
           </article>
 
           <article class="section">
-            <h2>副歌 1</h2>
             <p>
               记得回家，记得回家<br />
               没说完的话留到下次再说啊<br />
@@ -427,7 +368,6 @@
           </article>
 
           <article class="section">
-            <h2>主歌 2</h2>
             <p>
               夏天的门口被<br />
               围坐在一起的家人<br />
@@ -437,7 +377,6 @@
           </article>
 
           <article class="section">
-            <h2>渐进 2</h2>
             <p>
               灯光中故事从酒嘴流淌<br />
               眼泪擦掉笑就挂脸上<br />
@@ -447,7 +386,6 @@
           </article>
 
           <article class="section">
-            <h2>副歌 2</h2>
             <p>
               记得回家，记得回家<br />
               喝完这杯巨人就倒下<br />
@@ -458,7 +396,6 @@
           </article>
 
           <article class="section">
-            <h2>结尾</h2>
             <p>
               灯别关太早<br />
               夜还没有老<br />
@@ -470,18 +407,10 @@
             </p>
           </article>
         </div>
-
-        <aside class="side" aria-label="歌曲信息">
-          <img src="assets/buji-zhe-zhangda-cover.png" alt="不急着长大封面" />
-          <div class="side-info">
-            <strong>不急着长大</strong>
-            <p>Tim 作词，小鱼作曲。给河边、酒馆、朋友、家人和那些不舍得结束的夜晚。</p>
-          </div>
-        </aside>
       </section>
     </main>
 
-    <footer>SHIYI 2026 · 不急着长大</footer>
+    <footer>时一2026店庆 · 不急着长大</footer>
 
     <script>
       const audio = document.querySelector("#song");
