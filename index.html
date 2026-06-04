@@ -3,173 +3,538 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>SHIYI 2026</title>
+    <meta
+      name="description"
+      content="《不急着长大》歌曲页面，Tim 作词，小鱼作曲。"
+    />
+    <title>不急着长大 - SHIYI 2026</title>
     <style>
       :root {
-        color-scheme: light;
-        --ink: #17211b;
-        --muted: #56635c;
-        --paper: #fbfaf6;
-        --line: #d7ddd6;
-        --green: #1f7a4d;
-        --gold: #c7922e;
+        color-scheme: dark;
+        --ink: #fff8e9;
+        --soft: #eadfc5;
+        --muted: #bfb49d;
+        --deep: #09110e;
+        --river: #1e5b5a;
+        --moss: #35513e;
+        --amber: #d49a49;
+        --ember: #9e4f32;
+        --line: rgba(255, 248, 233, 0.18);
+        --panel: rgba(9, 17, 14, 0.68);
       }
 
       * {
         box-sizing: border-box;
       }
 
+      html {
+        scroll-behavior: smooth;
+      }
+
       body {
         margin: 0;
         min-height: 100vh;
-        font-family:
-          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
-          "Segoe UI", sans-serif;
         color: var(--ink);
         background:
-          linear-gradient(120deg, rgba(31, 122, 77, 0.1), transparent 38%),
-          linear-gradient(300deg, rgba(199, 146, 46, 0.13), transparent 42%),
-          var(--paper);
+          linear-gradient(180deg, #09110e 0%, #12231e 46%, #0b1412 100%);
+        font-family:
+          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+          "PingFang SC", "Microsoft YaHei", "Segoe UI", sans-serif;
       }
 
-      main {
-        display: grid;
-        min-height: 100vh;
-        place-items: center;
-        padding: 32px 20px;
+      body::before {
+        position: fixed;
+        inset: 0;
+        z-index: -2;
+        background:
+          linear-gradient(90deg, rgba(9, 17, 14, 0.96) 0%, rgba(9, 17, 14, 0.6) 52%, rgba(9, 17, 14, 0.18) 100%),
+          linear-gradient(180deg, rgba(9, 17, 14, 0.12) 0%, rgba(9, 17, 14, 0.92) 100%),
+          url("assets/buji-zhe-zhangda-cover.png") center / cover no-repeat;
+        content: "";
       }
 
-      .page {
-        width: min(920px, 100%);
-      }
-
-      .mark {
-        display: inline-grid;
-        width: 64px;
-        height: 64px;
-        margin-bottom: 28px;
-        place-items: center;
-        border: 1px solid var(--line);
-        border-radius: 8px;
-        background: #ffffffb8;
-        box-shadow: 0 18px 40px rgba(23, 33, 27, 0.08);
-        color: var(--green);
-        font-size: 24px;
-        font-weight: 800;
-      }
-
-      h1 {
-        margin: 0;
-        max-width: 760px;
-        font-size: clamp(48px, 10vw, 112px);
-        line-height: 0.92;
-        letter-spacing: 0;
-      }
-
-      p {
-        max-width: 560px;
-        margin: 28px 0 0;
-        color: var(--muted);
-        font-size: clamp(18px, 2.6vw, 22px);
-        line-height: 1.7;
-      }
-
-      .actions {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 12px;
-        margin-top: 36px;
+      body::after {
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+        pointer-events: none;
+        background-image:
+          linear-gradient(rgba(255, 248, 233, 0.035) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 248, 233, 0.025) 1px, transparent 1px);
+        background-size: 56px 56px;
+        mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.55), transparent 72%);
+        content: "";
       }
 
       a {
-        display: inline-flex;
-        min-height: 44px;
-        align-items: center;
-        justify-content: center;
-        border: 1px solid transparent;
-        border-radius: 8px;
-        padding: 0 18px;
-        color: #fff;
-        background: var(--green);
-        font-weight: 700;
-        text-decoration: none;
+        color: inherit;
       }
 
-      a.secondary {
-        border-color: var(--line);
-        color: var(--ink);
-        background: #ffffffc7;
-      }
-
-      .strip {
+      .hero {
+        min-height: 92vh;
         display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 10px;
-        margin-top: 56px;
+        align-items: center;
+        padding: 56px max(24px, 7vw) 40px;
       }
 
-      .tile {
-        min-height: 96px;
+      .hero-inner {
+        width: min(1120px, 100%);
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        gap: 10px;
+        align-items: center;
+        margin: 0 0 22px;
+        color: var(--soft);
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .eyebrow::before {
+        width: 42px;
+        height: 1px;
+        background: var(--amber);
+        content: "";
+      }
+
+      h1 {
+        max-width: 780px;
+        margin: 0;
+        font-size: clamp(56px, 11vw, 140px);
+        font-weight: 850;
+        line-height: 0.98;
+        letter-spacing: 0;
+      }
+
+      .subtitle {
+        max-width: 650px;
+        margin: 28px 0 0;
+        color: var(--soft);
+        font-size: clamp(18px, 2.1vw, 24px);
+        line-height: 1.8;
+      }
+
+      .credits {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        margin: 32px 0 0;
+        color: var(--muted);
+        font-size: 15px;
+      }
+
+      .credits span {
+        padding: 8px 12px;
         border: 1px solid var(--line);
         border-radius: 8px;
-        background:
-          linear-gradient(135deg, rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.45)),
-          repeating-linear-gradient(
-            135deg,
-            rgba(31, 122, 77, 0.16) 0 8px,
-            rgba(199, 146, 46, 0.12) 8px 16px
-          );
+        background: rgba(255, 248, 233, 0.06);
+        backdrop-filter: blur(12px);
       }
 
-      .tile:nth-child(2) {
-        background:
-          linear-gradient(135deg, rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0.4)),
-          repeating-linear-gradient(
-            90deg,
-            rgba(23, 33, 27, 0.12) 0 7px,
-            rgba(31, 122, 77, 0.1) 7px 14px
-          );
+      .player {
+        width: min(680px, 100%);
+        margin-top: 42px;
+        padding: 18px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--panel);
+        box-shadow: 0 24px 80px rgba(0, 0, 0, 0.36);
+        backdrop-filter: blur(18px);
       }
 
-      .tile:nth-child(3) {
-        background:
-          linear-gradient(135deg, rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0.4)),
-          repeating-linear-gradient(
-            45deg,
-            rgba(199, 146, 46, 0.18) 0 7px,
-            rgba(23, 33, 27, 0.08) 7px 15px
-          );
+      .player-top {
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr) auto;
+        gap: 16px;
+        align-items: center;
       }
 
-      @media (max-width: 640px) {
-        main {
-          place-items: start center;
-          padding-top: 72px;
+      .play {
+        display: inline-grid;
+        width: 52px;
+        height: 52px;
+        place-items: center;
+        border: 0;
+        border-radius: 999px;
+        color: #101915;
+        background: var(--amber);
+        font-size: 19px;
+        font-weight: 800;
+        cursor: pointer;
+      }
+
+      .track-title {
+        min-width: 0;
+      }
+
+      .track-title strong {
+        display: block;
+        overflow: hidden;
+        color: var(--ink);
+        font-size: 18px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .track-title small {
+        display: block;
+        margin-top: 4px;
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .time {
+        min-width: 90px;
+        color: var(--soft);
+        font-variant-numeric: tabular-nums;
+        text-align: right;
+      }
+
+      .bar {
+        position: relative;
+        height: 8px;
+        margin-top: 18px;
+        overflow: hidden;
+        border-radius: 999px;
+        background: rgba(255, 248, 233, 0.16);
+      }
+
+      .progress {
+        width: 0%;
+        height: 100%;
+        border-radius: inherit;
+        background: linear-gradient(90deg, var(--amber), #ffe2a8);
+      }
+
+      .content {
+        position: relative;
+        display: grid;
+        grid-template-columns: minmax(0, 0.74fr) minmax(320px, 0.26fr);
+        gap: 48px;
+        width: min(1120px, calc(100% - 48px));
+        margin: 0 auto;
+        padding: 54px 0 72px;
+      }
+
+      .lyrics {
+        display: grid;
+        gap: 22px;
+      }
+
+      .section {
+        border-top: 1px solid var(--line);
+        padding-top: 24px;
+      }
+
+      .section h2 {
+        margin: 0 0 14px;
+        color: var(--amber);
+        font-size: 15px;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+      }
+
+      .section p {
+        margin: 0;
+        color: var(--soft);
+        font-size: clamp(19px, 2vw, 25px);
+        line-height: 2.06;
+      }
+
+      .side {
+        position: sticky;
+        top: 24px;
+        align-self: start;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        overflow: hidden;
+        background: rgba(9, 17, 14, 0.7);
+        box-shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
+      }
+
+      .side img {
+        display: block;
+        width: 100%;
+        aspect-ratio: 4 / 5;
+        object-fit: cover;
+      }
+
+      .side-info {
+        padding: 18px;
+      }
+
+      .side-info p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.8;
+      }
+
+      .side-info strong {
+        display: block;
+        margin-bottom: 8px;
+        color: var(--ink);
+        font-size: 18px;
+      }
+
+      footer {
+        border-top: 1px solid var(--line);
+        padding: 28px 24px 38px;
+        color: var(--muted);
+        text-align: center;
+      }
+
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+        padding: 0;
+      }
+
+      @media (max-width: 840px) {
+        body::before {
+          background:
+            linear-gradient(180deg, rgba(9, 17, 14, 0.68) 0%, rgba(9, 17, 14, 0.96) 78%),
+            url("assets/buji-zhe-zhangda-cover.png") center top / auto 58vh no-repeat,
+            #09110e;
         }
 
-        .strip {
+        .hero {
+          min-height: 86vh;
+          padding: 64px 20px 30px;
+        }
+
+        .content {
           grid-template-columns: 1fr;
-          margin-top: 40px;
+          gap: 34px;
+          width: min(100% - 40px, 680px);
+          padding-top: 34px;
+        }
+
+        .side {
+          position: static;
+          order: -1;
+        }
+
+        .side img {
+          aspect-ratio: 16 / 10;
+        }
+      }
+
+      @media (max-width: 560px) {
+        h1 {
+          font-size: clamp(46px, 17vw, 78px);
+        }
+
+        .player {
+          padding: 14px;
+        }
+
+        .player-top {
+          grid-template-columns: auto minmax(0, 1fr);
+        }
+
+        .time {
+          grid-column: 1 / -1;
+          min-width: 0;
+          text-align: left;
+        }
+
+        .section p {
+          font-size: 18px;
+          line-height: 1.95;
         }
       }
     </style>
   </head>
   <body>
     <main>
-      <section class="page" aria-label="SHIYI 2026 GitHub Pages preview">
-        <div class="mark" aria-hidden="true">十</div>
-        <h1>SHIYI 2026</h1>
-        <p>一个非常简单的 GitHub Pages 单页预览。页面已经准备好从仓库根目录直接发布。</p>
-        <div class="actions">
-          <a href="https://github.com/nagisa77/SHIYI2026">查看仓库</a>
-          <a class="secondary" href="https://nagisa77.github.io/SHIYI2026/">打开页面</a>
-        </div>
-        <div class="strip" aria-hidden="true">
-          <div class="tile"></div>
-          <div class="tile"></div>
-          <div class="tile"></div>
+      <section class="hero" aria-label="不急着长大">
+        <div class="hero-inner">
+          <p class="eyebrow">SHIYI 2026</p>
+          <h1>不急着长大</h1>
+          <p class="subtitle">
+            河边还有风，杯里还有梦。今晚不赶路，把没说完的话留到下次再说。
+          </p>
+          <div class="credits" aria-label="创作信息">
+            <span>Tim 作词</span>
+            <span>小鱼 作曲</span>
+          </div>
+
+          <section class="player" aria-label="音乐播放器">
+            <audio
+              id="song"
+              preload="auto"
+              autoplay
+              src="https://openisle-1307107697.cos.ap-guangzhou.myqcloud.com/shiyi2026/%E4%B8%8D%E6%80%A5%E7%9D%80%E9%95%BF%E5%A4%A7%20-%202026%3A6%3A3%20%E4%B8%8B%E5%8D%8810.57.mp3"
+            ></audio>
+            <div class="player-top">
+              <button class="play" id="play" type="button" aria-label="播放">▶</button>
+              <div class="track-title">
+                <strong>不急着长大</strong>
+                <small>Tim 作词 · 小鱼 作曲</small>
+              </div>
+              <div class="time" id="time">0:00 / 0:00</div>
+            </div>
+            <div class="bar" aria-hidden="true">
+              <div class="progress" id="progress"></div>
+            </div>
+            <p class="sr-only" id="play-state" aria-live="polite">准备播放</p>
+          </section>
         </div>
       </section>
+
+      <section class="content" aria-label="歌词">
+        <div class="lyrics">
+          <article class="section">
+            <h2>主歌 1</h2>
+            <p>
+              河里的石头被时间磨圆<br />
+              我们见了不止一面<br />
+              有人把酒杯举过头顶<br />
+              有人把心事吐在路边
+            </p>
+          </article>
+
+          <article class="section">
+            <h2>渐进</h2>
+            <p>
+              那天风吹过大树下面<br />
+              篝火烧得迷住了双眼<br />
+              我们跳了没有名字的舞<br />
+              把眼泪和笑脸都留在今天
+            </p>
+          </article>
+
+          <article class="section">
+            <h2>副歌 1</h2>
+            <p>
+              记得回家，记得回家<br />
+              没说完的话留到下次再说啊<br />
+              周四小饭桌，灯亮到月亮去睡觉<br />
+              我们不赶路，也不急着长大<br />
+              河流缓缓，冲散了一切焦虑事物<br />
+              时一酒馆，记住我们全部
+            </p>
+          </article>
+
+          <article class="section">
+            <h2>主歌 2</h2>
+            <p>
+              夏天的门口被<br />
+              围坐在一起的家人<br />
+              自由不一定要去远方<br />
+              今晚也不用急着散场
+            </p>
+          </article>
+
+          <article class="section">
+            <h2>渐进 2</h2>
+            <p>
+              灯光中故事从酒嘴流淌<br />
+              眼泪擦掉笑就挂脸上<br />
+              我们喝了，名为生活的酒<br />
+              把日子和晚霞都扔进河流
+            </p>
+          </article>
+
+          <article class="section">
+            <h2>副歌 2</h2>
+            <p>
+              记得回家，记得回家<br />
+              喝完这杯巨人就倒下<br />
+              钥匙给你们，灯亮到自己关门啊<br />
+              今晚在这，共唱一首理想和兰州<br />
+              时一酒馆，记住我们全部
+            </p>
+          </article>
+
+          <article class="section">
+            <h2>结尾</h2>
+            <p>
+              灯别关太早<br />
+              夜还没有老<br />
+              河边还有风<br />
+              杯里还有梦<br />
+              如果有天你路过十一<br />
+              门口的风还是旧脾气<br />
+              你推开门就会听见回忆
+            </p>
+          </article>
+        </div>
+
+        <aside class="side" aria-label="歌曲信息">
+          <img src="assets/buji-zhe-zhangda-cover.png" alt="不急着长大封面" />
+          <div class="side-info">
+            <strong>不急着长大</strong>
+            <p>Tim 作词，小鱼作曲。给河边、酒馆、朋友、家人和那些不舍得结束的夜晚。</p>
+          </div>
+        </aside>
+      </section>
     </main>
+
+    <footer>SHIYI 2026 · 不急着长大</footer>
+
+    <script>
+      const audio = document.querySelector("#song");
+      const playButton = document.querySelector("#play");
+      const progress = document.querySelector("#progress");
+      const time = document.querySelector("#time");
+      const playState = document.querySelector("#play-state");
+
+      const formatTime = (seconds) => {
+        if (!Number.isFinite(seconds)) return "0:00";
+        const minutes = Math.floor(seconds / 60);
+        const rest = Math.floor(seconds % 60)
+          .toString()
+          .padStart(2, "0");
+        return `${minutes}:${rest}`;
+      };
+
+      const render = () => {
+        const duration = audio.duration || 0;
+        const current = audio.currentTime || 0;
+        const ratio = duration ? (current / duration) * 100 : 0;
+        progress.style.width = `${Math.min(ratio, 100)}%`;
+        time.textContent = `${formatTime(current)} / ${formatTime(duration)}`;
+        playButton.textContent = audio.paused ? "▶" : "Ⅱ";
+        playButton.setAttribute("aria-label", audio.paused ? "播放" : "暂停");
+        playState.textContent = audio.paused ? "暂停" : "播放中";
+      };
+
+      const toggle = async () => {
+        if (audio.paused) {
+          try {
+            await audio.play();
+          } catch {
+            playState.textContent = "暂停";
+          }
+        } else {
+          audio.pause();
+        }
+        render();
+      };
+
+      playButton.addEventListener("click", toggle);
+      audio.addEventListener("loadedmetadata", render);
+      audio.addEventListener("timeupdate", render);
+      audio.addEventListener("play", render);
+      audio.addEventListener("pause", render);
+      audio.addEventListener("ended", render);
+
+      window.addEventListener("load", () => {
+        audio.play().catch(() => {
+          render();
+        });
+      });
+    </script>
   </body>
 </html>
