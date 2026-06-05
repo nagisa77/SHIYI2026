@@ -127,7 +127,7 @@
 
       .players {
         display: grid;
-        gap: 14px;
+        gap: 10px;
         width: min(720px, 100%);
         margin-top: 38px;
       }
@@ -151,11 +151,13 @@
       }
 
       .player-secondary {
-        width: min(560px, 100%);
-        padding: 14px;
+        width: min(430px, 100%);
+        padding: 10px 12px;
+        border-color: rgba(236, 226, 207, 0.12);
         background:
-          linear-gradient(135deg, rgba(236, 226, 207, 0.06), rgba(236, 226, 207, 0.02)),
-          rgba(7, 12, 10, 0.52);
+          linear-gradient(135deg, rgba(236, 226, 207, 0.045), rgba(236, 226, 207, 0.015)),
+          rgba(7, 12, 10, 0.45);
+        box-shadow: 0 14px 44px rgba(0, 0, 0, 0.2);
       }
 
       .player-kicker {
@@ -188,10 +190,11 @@
       }
 
       .player-secondary .play {
-        width: 44px;
-        height: 44px;
-        color: var(--soft);
-        background: rgba(236, 226, 207, 0.1);
+        width: 34px;
+        height: 34px;
+        color: rgba(255, 249, 236, 0.9);
+        background: rgba(236, 226, 207, 0.085);
+        font-size: 14px;
         box-shadow: none;
       }
 
@@ -216,7 +219,12 @@
       }
 
       .player-secondary .track-title strong {
-        font-size: 16px;
+        font-size: 14px;
+      }
+
+      .player-secondary .track-title small {
+        margin-top: 2px;
+        font-size: 12px;
       }
 
       .time {
@@ -237,8 +245,8 @@
       }
 
       .player-secondary .bar {
-        height: 6px;
-        margin-top: 12px;
+        height: 4px;
+        margin-top: 9px;
       }
 
       .progress {
@@ -250,6 +258,16 @@
 
       .player-secondary .progress {
         background: rgba(236, 226, 207, 0.62);
+      }
+
+      .player-secondary .player-top {
+        gap: 10px;
+      }
+
+      .player-secondary .time {
+        min-width: 72px;
+        color: var(--muted);
+        font-size: 12px;
       }
 
       .player.is-playing {
@@ -406,7 +424,7 @@
                 <button class="play" type="button" aria-label="播放伴奏">▶</button>
                 <div class="track-title">
                   <strong>播放伴奏</strong>
-                  <small>Instrumental</small>
+                  <small>纯音乐版</small>
                 </div>
                 <div class="time">0:00 / 0:00</div>
               </div>
