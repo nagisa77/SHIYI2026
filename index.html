@@ -14,14 +14,15 @@
         --cover-image: url("https://openisle-1307107697.cos.ap-guangzhou.myqcloud.com/shiyi2026/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20260604152642_70_966.png");
         --ink: #fff9ec;
         --soft: #e8dfce;
-        --muted: #ada491;
-        --deep: #070c0a;
+        --muted: #aaa28f;
+        --deep: #060b0a;
         --night: #101714;
+        --jade: #6bb5a7;
         --bronze: #c7a66f;
         --bronze-soft: #eadab7;
         --line: rgba(236, 226, 207, 0.18);
-        --line-strong: rgba(199, 166, 111, 0.38);
-        --panel: rgba(7, 12, 10, 0.66);
+        --line-strong: rgba(199, 166, 111, 0.4);
+        --panel: rgba(7, 12, 10, 0.68);
       }
 
       * {
@@ -36,7 +37,7 @@
         margin: 0;
         min-height: 100vh;
         color: var(--ink);
-        background: linear-gradient(180deg, var(--deep) 0%, var(--night) 50%, #080b0a 100%);
+        background: linear-gradient(180deg, var(--deep) 0%, var(--night) 52%, #070a09 100%);
         font-family:
           Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
           "PingFang SC", "Microsoft YaHei", "Segoe UI", sans-serif;
@@ -46,10 +47,10 @@
       body::before {
         position: fixed;
         inset: 0;
-        z-index: -2;
+        z-index: -4;
         background:
-          linear-gradient(90deg, rgba(7, 12, 10, 0.97) 0%, rgba(7, 12, 10, 0.72) 48%, rgba(7, 12, 10, 0.34) 100%),
-          linear-gradient(180deg, rgba(7, 12, 10, 0.12) 0%, rgba(7, 12, 10, 0.78) 66%, #070c0a 100%),
+          linear-gradient(92deg, rgba(6, 11, 10, 0.98) 0%, rgba(6, 11, 10, 0.72) 47%, rgba(6, 11, 10, 0.36) 100%),
+          linear-gradient(180deg, rgba(6, 11, 10, 0.08) 0%, rgba(6, 11, 10, 0.82) 70%, #060b0a 100%),
           var(--cover-image) center / cover no-repeat;
         content: "";
       }
@@ -57,25 +58,55 @@
       body::after {
         position: fixed;
         inset: 0;
-        z-index: -1;
+        z-index: -2;
         pointer-events: none;
         background-image:
-          linear-gradient(rgba(236, 226, 207, 0.024) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(236, 226, 207, 0.016) 1px, transparent 1px);
+          linear-gradient(rgba(236, 226, 207, 0.022) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(236, 226, 207, 0.014) 1px, transparent 1px);
         background-size: 64px 64px;
-        mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.5), transparent 74%);
+        mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.52), transparent 74%);
         content: "";
+      }
+
+      .ambient {
+        position: fixed;
+        inset: 0;
+        z-index: -3;
+        overflow: hidden;
+        pointer-events: none;
+      }
+
+      .ambient::before,
+      .ambient::after {
+        position: absolute;
+        inset: -20% -12%;
+        background:
+          linear-gradient(115deg, transparent 10%, rgba(199, 166, 111, 0.1) 31%, transparent 46%),
+          linear-gradient(70deg, transparent 45%, rgba(107, 181, 167, 0.08) 55%, transparent 69%);
+        filter: blur(2px);
+        opacity: 0.74;
+        transform: translateX(-8%);
+        animation: lightDrift 14s ease-in-out infinite alternate;
+        content: "";
+      }
+
+      .ambient::after {
+        opacity: 0.42;
+        transform: translateX(10%) translateY(6%);
+        animation-duration: 18s;
+        animation-delay: -5s;
       }
 
       .hero {
         min-height: 94vh;
         display: grid;
         align-items: center;
-        padding: 58px max(24px, 7vw) 38px;
+        padding: 60px max(22px, 7vw) 38px;
       }
 
       .hero-inner {
-        width: min(920px, 100%);
+        width: min(960px, 100%);
+        animation: riseIn 900ms ease both;
       }
 
       .eyebrow {
@@ -91,22 +122,24 @@
       .eyebrow::before {
         width: 42px;
         height: 1px;
-        background: var(--bronze);
+        background: linear-gradient(90deg, var(--bronze), rgba(107, 181, 167, 0.6));
         content: "";
       }
 
       h1 {
-        max-width: 780px;
+        max-width: 820px;
         margin: 0;
-        font-size: clamp(56px, 9.8vw, 126px);
+        color: var(--ink);
+        font-size: clamp(56px, 9.6vw, 124px);
         font-weight: 850;
         line-height: 0.98;
         letter-spacing: 0;
         text-wrap: balance;
+        text-shadow: 0 20px 70px rgba(0, 0, 0, 0.45);
       }
 
       .subtitle {
-        max-width: 640px;
+        max-width: 660px;
         margin: 26px 0 0;
         color: var(--soft);
         font-size: clamp(18px, 2vw, 24px);
@@ -133,21 +166,46 @@
       }
 
       .player {
+        position: relative;
+        overflow: hidden;
         border: 1px solid var(--line);
         border-radius: 8px;
         background:
           linear-gradient(135deg, rgba(236, 226, 207, 0.09), rgba(236, 226, 207, 0.028)),
           var(--panel);
         box-shadow: 0 24px 70px rgba(0, 0, 0, 0.36);
-        backdrop-filter: blur(20px);
+        backdrop-filter: blur(22px);
+        transition:
+          border-color 220ms ease,
+          box-shadow 220ms ease,
+          transform 220ms ease;
+      }
+
+      .player::before {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background: linear-gradient(120deg, transparent 0%, rgba(255, 249, 236, 0.08) 18%, transparent 34%);
+        opacity: 0;
+        transform: translateX(-120%);
+        content: "";
+      }
+
+      .player:hover {
+        transform: translateY(-2px);
       }
 
       .player-main {
         padding: 22px;
         border-color: var(--line-strong);
         box-shadow:
-          0 28px 90px rgba(0, 0, 0, 0.44),
+          0 30px 92px rgba(0, 0, 0, 0.46),
           inset 0 1px 0 rgba(255, 249, 236, 0.08);
+      }
+
+      .player-main.is-playing::before {
+        opacity: 1;
+        animation: sheen 4.8s ease-in-out infinite;
       }
 
       .player-secondary {
@@ -169,24 +227,56 @@
 
       .player-top {
         display: grid;
-        grid-template-columns: auto minmax(0, 1fr) auto;
-        gap: 16px;
+        grid-template-columns: auto auto minmax(0, 1fr) auto;
+        gap: 12px;
         align-items: center;
       }
 
-      .play {
+      .play,
+      .restart {
         display: inline-grid;
-        width: 58px;
-        height: 58px;
         place-items: center;
         border: 0;
         border-radius: 999px;
+        cursor: pointer;
+        transition:
+          background 180ms ease,
+          color 180ms ease,
+          transform 180ms ease;
+      }
+
+      .play:hover,
+      .restart:hover {
+        transform: translateY(-1px);
+      }
+
+      .play {
+        width: 58px;
+        height: 58px;
         color: #111611;
         background: linear-gradient(135deg, #f0dfba, var(--bronze));
         font-size: 20px;
         font-weight: 800;
-        cursor: pointer;
         box-shadow: 0 12px 28px rgba(199, 166, 111, 0.25);
+      }
+
+      .restart {
+        width: 42px;
+        height: 42px;
+        border: 1px solid rgba(236, 226, 207, 0.18);
+        color: var(--soft);
+        background: rgba(236, 226, 207, 0.08);
+        font-size: 19px;
+        font-weight: 800;
+      }
+
+      .restart:hover {
+        background: rgba(236, 226, 207, 0.13);
+      }
+
+      .player-secondary .player-top {
+        grid-template-columns: auto minmax(0, 1fr) auto;
+        gap: 10px;
       }
 
       .player-secondary .play {
@@ -234,6 +324,45 @@
         text-align: right;
       }
 
+      .visualizer {
+        position: absolute;
+        top: 21px;
+        right: 22px;
+        display: inline-flex;
+        gap: 4px;
+        align-items: end;
+        height: 22px;
+        opacity: 0.5;
+      }
+
+      .visualizer span {
+        width: 3px;
+        height: 7px;
+        border-radius: 999px;
+        background: linear-gradient(180deg, var(--bronze-soft), var(--jade));
+        transform-origin: bottom;
+      }
+
+      .player-main.is-playing .visualizer span {
+        animation: pulseBar 880ms ease-in-out infinite;
+      }
+
+      .visualizer span:nth-child(2) {
+        animation-delay: -120ms;
+      }
+
+      .visualizer span:nth-child(3) {
+        animation-delay: -260ms;
+      }
+
+      .visualizer span:nth-child(4) {
+        animation-delay: -420ms;
+      }
+
+      .visualizer span:nth-child(5) {
+        animation-delay: -540ms;
+      }
+
       .bar {
         position: relative;
         height: 8px;
@@ -253,15 +382,12 @@
         width: 0%;
         height: 100%;
         border-radius: inherit;
-        background: linear-gradient(90deg, var(--bronze), #eee0bd);
+        background: linear-gradient(90deg, var(--jade), var(--bronze), #eee0bd);
+        transition: width 120ms linear;
       }
 
       .player-secondary .progress {
         background: rgba(236, 226, 207, 0.62);
-      }
-
-      .player-secondary .player-top {
-        gap: 10px;
       }
 
       .player-secondary .time {
@@ -271,7 +397,10 @@
       }
 
       .player.is-playing {
-        border-color: rgba(234, 218, 183, 0.52);
+        border-color: rgba(234, 218, 183, 0.54);
+        box-shadow:
+          0 28px 90px rgba(0, 0, 0, 0.44),
+          0 0 0 1px rgba(199, 166, 111, 0.08);
       }
 
       .content {
@@ -296,6 +425,31 @@
       .section {
         padding-top: 28px;
         border-top: 1px solid rgba(236, 226, 207, 0.13);
+        animation: lyricRise 700ms ease both;
+      }
+
+      .section:nth-child(2) {
+        animation-delay: 80ms;
+      }
+
+      .section:nth-child(3) {
+        animation-delay: 160ms;
+      }
+
+      .section:nth-child(4) {
+        animation-delay: 240ms;
+      }
+
+      .section:nth-child(5) {
+        animation-delay: 320ms;
+      }
+
+      .section:nth-child(6) {
+        animation-delay: 400ms;
+      }
+
+      .section:nth-child(7) {
+        animation-delay: 480ms;
       }
 
       .section:first-child {
@@ -329,12 +483,68 @@
         padding: 0;
       }
 
+      @keyframes riseIn {
+        from {
+          opacity: 0;
+          transform: translateY(18px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes lyricRise {
+        from {
+          opacity: 0;
+          transform: translateY(16px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes lightDrift {
+        from {
+          transform: translateX(-8%) translateY(0);
+        }
+
+        to {
+          transform: translateX(8%) translateY(-3%);
+        }
+      }
+
+      @keyframes sheen {
+        0%,
+        42% {
+          transform: translateX(-120%);
+        }
+
+        100% {
+          transform: translateX(130%);
+        }
+      }
+
+      @keyframes pulseBar {
+        0%,
+        100% {
+          height: 7px;
+        }
+
+        50% {
+          height: 22px;
+        }
+      }
+
       @media (max-width: 840px) {
         body::before {
           background:
-            linear-gradient(180deg, rgba(7, 12, 10, 0.42) 0%, rgba(7, 12, 10, 0.96) 74%, #070c0a 100%),
+            linear-gradient(180deg, rgba(6, 11, 10, 0.42) 0%, rgba(6, 11, 10, 0.96) 74%, #060b0a 100%),
             var(--cover-image) center top / auto 60vh no-repeat,
-            #070c0a;
+            #060b0a;
         }
 
         .hero {
@@ -358,6 +568,10 @@
         }
 
         .player-top {
+          grid-template-columns: auto auto minmax(0, 1fr);
+        }
+
+        .player-secondary .player-top {
           grid-template-columns: auto minmax(0, 1fr);
         }
 
@@ -368,7 +582,15 @@
         }
 
         .player-secondary .time {
-          font-size: 13px;
+          grid-column: 1 / -1;
+          font-size: 12px;
+        }
+
+        .visualizer {
+          top: 14px;
+          right: 16px;
+          transform: scale(0.86);
+          transform-origin: top right;
         }
 
         .section p {
@@ -376,9 +598,21 @@
           line-height: 1.95;
         }
       }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          scroll-behavior: auto !important;
+          animation-duration: 1ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 1ms !important;
+        }
+      }
     </style>
   </head>
   <body>
+    <div class="ambient" aria-hidden="true"></div>
     <main>
       <section class="hero" aria-label="不急着长大">
         <div class="hero-inner">
@@ -391,6 +625,13 @@
 
           <section class="players" aria-label="音乐播放器">
             <article class="player player-main" data-player>
+              <div class="visualizer" aria-hidden="true">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
               <p class="player-kicker">播放歌曲</p>
               <audio
                 id="song"
@@ -401,6 +642,7 @@
               ></audio>
               <div class="player-top">
                 <button class="play" type="button" aria-label="播放歌曲">▶</button>
+                <button class="restart" type="button" aria-label="歌曲回到 0:00" title="回到 0:00" data-reset>↺</button>
                 <div class="track-title">
                   <strong>不急着长大</strong>
                   <small>完整版</small>
@@ -518,6 +760,7 @@
         player,
         audio: player.querySelector("audio"),
         button: player.querySelector(".play"),
+        reset: player.querySelector("[data-reset]"),
         progress: player.querySelector(".progress"),
         bar: player.querySelector(".bar"),
         time: player.querySelector(".time"),
@@ -568,6 +811,11 @@
         render(item);
       };
 
+      const restart = (item) => {
+        item.audio.currentTime = 0;
+        render(item);
+      };
+
       const seek = (item, event) => {
         if (!item.audio.duration) return;
         const rect = item.bar.getBoundingClientRect();
@@ -578,6 +826,7 @@
 
       players.forEach((item) => {
         item.button.addEventListener("click", () => toggle(item));
+        item.reset?.addEventListener("click", () => restart(item));
         item.bar.addEventListener("click", (event) => seek(item, event));
         item.audio.addEventListener("play", () => {
           pauseOthers(item);
