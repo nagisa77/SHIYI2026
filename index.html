@@ -18,7 +18,9 @@
         --deep: #070c0a;
         --night: #101714;
         --bronze: #c7a66f;
+        --bronze-soft: #eadab7;
         --line: rgba(236, 226, 207, 0.18);
+        --line-strong: rgba(199, 166, 111, 0.38);
         --panel: rgba(7, 12, 10, 0.66);
       }
 
@@ -46,8 +48,8 @@
         inset: 0;
         z-index: -2;
         background:
-          linear-gradient(90deg, rgba(7, 12, 10, 0.96) 0%, rgba(7, 12, 10, 0.7) 48%, rgba(7, 12, 10, 0.32) 100%),
-          linear-gradient(180deg, rgba(7, 12, 10, 0.1) 0%, rgba(7, 12, 10, 0.76) 66%, #070c0a 100%),
+          linear-gradient(90deg, rgba(7, 12, 10, 0.97) 0%, rgba(7, 12, 10, 0.72) 48%, rgba(7, 12, 10, 0.34) 100%),
+          linear-gradient(180deg, rgba(7, 12, 10, 0.12) 0%, rgba(7, 12, 10, 0.78) 66%, #070c0a 100%),
           var(--cover-image) center / cover no-repeat;
         content: "";
       }
@@ -58,22 +60,22 @@
         z-index: -1;
         pointer-events: none;
         background-image:
-          linear-gradient(rgba(236, 226, 207, 0.025) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(236, 226, 207, 0.018) 1px, transparent 1px);
+          linear-gradient(rgba(236, 226, 207, 0.024) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(236, 226, 207, 0.016) 1px, transparent 1px);
         background-size: 64px 64px;
-        mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.52), transparent 74%);
+        mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.5), transparent 74%);
         content: "";
       }
 
       .hero {
-        min-height: 90vh;
+        min-height: 94vh;
         display: grid;
         align-items: center;
-        padding: 58px max(24px, 7vw) 34px;
+        padding: 58px max(24px, 7vw) 38px;
       }
 
       .hero-inner {
-        width: min(900px, 100%);
+        width: min(920px, 100%);
       }
 
       .eyebrow {
@@ -96,7 +98,7 @@
       h1 {
         max-width: 780px;
         margin: 0;
-        font-size: clamp(56px, 10vw, 132px);
+        font-size: clamp(56px, 9.8vw, 126px);
         font-weight: 850;
         line-height: 0.98;
         letter-spacing: 0;
@@ -113,7 +115,7 @@
 
       .credits {
         display: inline-flex;
-        margin: 30px 0 0;
+        margin: 28px 0 0;
         padding: 10px 14px;
         border: 1px solid var(--line);
         border-radius: 8px;
@@ -123,17 +125,44 @@
         backdrop-filter: blur(14px);
       }
 
+      .players {
+        display: grid;
+        gap: 14px;
+        width: min(720px, 100%);
+        margin-top: 38px;
+      }
+
       .player {
-        width: min(680px, 100%);
-        margin-top: 40px;
-        padding: 18px;
         border: 1px solid var(--line);
         border-radius: 8px;
         background:
-          linear-gradient(135deg, rgba(236, 226, 207, 0.1), rgba(236, 226, 207, 0.035)),
+          linear-gradient(135deg, rgba(236, 226, 207, 0.09), rgba(236, 226, 207, 0.028)),
           var(--panel);
-        box-shadow: 0 28px 90px rgba(0, 0, 0, 0.42);
+        box-shadow: 0 24px 70px rgba(0, 0, 0, 0.36);
         backdrop-filter: blur(20px);
+      }
+
+      .player-main {
+        padding: 22px;
+        border-color: var(--line-strong);
+        box-shadow:
+          0 28px 90px rgba(0, 0, 0, 0.44),
+          inset 0 1px 0 rgba(255, 249, 236, 0.08);
+      }
+
+      .player-secondary {
+        width: min(560px, 100%);
+        padding: 14px;
+        background:
+          linear-gradient(135deg, rgba(236, 226, 207, 0.06), rgba(236, 226, 207, 0.02)),
+          rgba(7, 12, 10, 0.52);
+      }
+
+      .player-kicker {
+        margin: 0 0 14px;
+        color: var(--bronze-soft);
+        font-size: 13px;
+        font-weight: 700;
       }
 
       .player-top {
@@ -145,17 +174,25 @@
 
       .play {
         display: inline-grid;
-        width: 52px;
-        height: 52px;
+        width: 58px;
+        height: 58px;
         place-items: center;
         border: 0;
         border-radius: 999px;
         color: #111611;
-        background: linear-gradient(135deg, #ecddb9, var(--bronze));
-        font-size: 19px;
+        background: linear-gradient(135deg, #f0dfba, var(--bronze));
+        font-size: 20px;
         font-weight: 800;
         cursor: pointer;
-        box-shadow: 0 10px 26px rgba(199, 166, 111, 0.24);
+        box-shadow: 0 12px 28px rgba(199, 166, 111, 0.25);
+      }
+
+      .player-secondary .play {
+        width: 44px;
+        height: 44px;
+        color: var(--soft);
+        background: rgba(236, 226, 207, 0.1);
+        box-shadow: none;
       }
 
       .track-title {
@@ -166,20 +203,24 @@
         display: block;
         overflow: hidden;
         color: var(--ink);
-        font-size: 18px;
+        font-size: 22px;
         text-overflow: ellipsis;
         white-space: nowrap;
       }
 
       .track-title small {
         display: block;
-        margin-top: 4px;
+        margin-top: 5px;
         color: var(--muted);
         font-size: 13px;
       }
 
+      .player-secondary .track-title strong {
+        font-size: 16px;
+      }
+
       .time {
-        min-width: 90px;
+        min-width: 94px;
         color: var(--soft);
         font-variant-numeric: tabular-nums;
         text-align: right;
@@ -192,6 +233,12 @@
         overflow: hidden;
         border-radius: 999px;
         background: rgba(236, 226, 207, 0.16);
+        cursor: pointer;
+      }
+
+      .player-secondary .bar {
+        height: 6px;
+        margin-top: 12px;
       }
 
       .progress {
@@ -201,10 +248,18 @@
         background: linear-gradient(90deg, var(--bronze), #eee0bd);
       }
 
+      .player-secondary .progress {
+        background: rgba(236, 226, 207, 0.62);
+      }
+
+      .player.is-playing {
+        border-color: rgba(234, 218, 183, 0.52);
+      }
+
       .content {
         width: min(900px, calc(100% - 48px));
         margin: 0 auto;
-        padding: 42px 0 76px;
+        padding: 44px 0 78px;
       }
 
       .lyrics {
@@ -265,7 +320,7 @@
         }
 
         .hero {
-          min-height: 86vh;
+          min-height: 88vh;
           padding: 64px 20px 30px;
         }
 
@@ -280,8 +335,8 @@
           font-size: clamp(46px, 17vw, 78px);
         }
 
-        .player {
-          padding: 14px;
+        .player-main {
+          padding: 16px;
         }
 
         .player-top {
@@ -292,6 +347,10 @@
           grid-column: 1 / -1;
           min-width: 0;
           text-align: left;
+        }
+
+        .player-secondary .time {
+          font-size: 13px;
         }
 
         .section p {
@@ -310,28 +369,52 @@
           <p class="subtitle">
             河边还有风，杯里还有梦。今晚不赶路，把没说完的话留到下次再说。
           </p>
-          <p class="credits">Tim 作词 · 小鱼 作曲</p>
+          <p class="credits">Tim 作曲 · 小鱼 作词</p>
 
-          <section class="player" aria-label="音乐播放器">
-            <audio
-              id="song"
-              preload="auto"
-              autoplay
-              playsinline
-              src="https://openisle-1307107697.cos.ap-guangzhou.myqcloud.com/shiyi2026/%E4%B8%8D%E6%80%A5%E7%9D%80%E9%95%BF%E5%A4%A7%20-%202026%3A6%3A3%20%E4%B8%8B%E5%8D%8810.57.mp3"
-            ></audio>
-            <div class="player-top">
-              <button class="play" id="play" type="button" aria-label="播放">▶</button>
-              <div class="track-title">
-                <strong>不急着长大</strong>
-                <small>河边还有风，杯里还有梦</small>
+          <section class="players" aria-label="音乐播放器">
+            <article class="player player-main" data-player>
+              <p class="player-kicker">播放歌曲</p>
+              <audio
+                id="song"
+                preload="auto"
+                autoplay
+                playsinline
+                src="https://openisle-1307107697.cos.ap-guangzhou.myqcloud.com/shiyi2026/%E4%B8%8D%E6%80%A5%E7%9D%80%E9%95%BF%E5%A4%A7%20-%202026%3A6%3A5%20%E4%B8%8B%E5%8D%881.08.mp3"
+              ></audio>
+              <div class="player-top">
+                <button class="play" type="button" aria-label="播放歌曲">▶</button>
+                <div class="track-title">
+                  <strong>不急着长大</strong>
+                  <small>完整版</small>
+                </div>
+                <div class="time">0:00 / 0:00</div>
               </div>
-              <div class="time" id="time">0:00 / 0:00</div>
-            </div>
-            <div class="bar" aria-hidden="true">
-              <div class="progress" id="progress"></div>
-            </div>
-            <p class="sr-only" id="play-state" aria-live="polite">准备播放</p>
+              <div class="bar" aria-label="歌曲进度" role="slider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="0">
+                <div class="progress"></div>
+              </div>
+              <p class="sr-only play-state" aria-live="polite">准备播放歌曲</p>
+            </article>
+
+            <article class="player player-secondary" data-player>
+              <audio
+                id="instrumental"
+                preload="metadata"
+                playsinline
+                src="https://openisle-1307107697.cos.ap-guangzhou.myqcloud.com/shiyi2026/%E4%B8%8D%E6%80%A5%E7%9D%80%E9%95%BF%E5%A4%A7%E4%BC%B4%E5%A5%8F%20-%202026%3A6%3A5%20%E4%B8%8B%E5%8D%881.10.mp3"
+              ></audio>
+              <div class="player-top">
+                <button class="play" type="button" aria-label="播放伴奏">▶</button>
+                <div class="track-title">
+                  <strong>播放伴奏</strong>
+                  <small>Instrumental</small>
+                </div>
+                <div class="time">0:00 / 0:00</div>
+              </div>
+              <div class="bar" aria-label="伴奏进度" role="slider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="0">
+                <div class="progress"></div>
+              </div>
+              <p class="sr-only play-state" aria-live="polite">准备播放伴奏</p>
+            </article>
           </section>
         </div>
       </section>
@@ -413,11 +496,15 @@
     <footer>时一2026店庆 · 不急着长大</footer>
 
     <script>
-      const audio = document.querySelector("#song");
-      const playButton = document.querySelector("#play");
-      const progress = document.querySelector("#progress");
-      const time = document.querySelector("#time");
-      const playState = document.querySelector("#play-state");
+      const players = [...document.querySelectorAll("[data-player]")].map((player) => ({
+        player,
+        audio: player.querySelector("audio"),
+        button: player.querySelector(".play"),
+        progress: player.querySelector(".progress"),
+        bar: player.querySelector(".bar"),
+        time: player.querySelector(".time"),
+        state: player.querySelector(".play-state"),
+      }));
 
       const formatTime = (seconds) => {
         if (!Number.isFinite(seconds)) return "0:00";
@@ -428,40 +515,66 @@
         return `${minutes}:${rest}`;
       };
 
-      const render = () => {
-        const duration = audio.duration || 0;
-        const current = audio.currentTime || 0;
+      const render = (item) => {
+        const duration = item.audio.duration || 0;
+        const current = item.audio.currentTime || 0;
         const ratio = duration ? (current / duration) * 100 : 0;
-        progress.style.width = `${Math.min(ratio, 100)}%`;
-        time.textContent = `${formatTime(current)} / ${formatTime(duration)}`;
-        playButton.textContent = audio.paused ? "▶" : "Ⅱ";
-        playButton.setAttribute("aria-label", audio.paused ? "播放" : "暂停");
-        playState.textContent = audio.paused ? "暂停" : "播放中";
+        item.progress.style.width = `${Math.min(ratio, 100)}%`;
+        item.bar.setAttribute("aria-valuenow", Math.round(Math.min(ratio, 100)));
+        item.time.textContent = `${formatTime(current)} / ${formatTime(duration)}`;
+        item.button.textContent = item.audio.paused ? "▶" : "Ⅱ";
+        item.player.classList.toggle("is-playing", !item.audio.paused);
+        item.state.textContent = item.audio.paused ? "暂停" : "播放中";
       };
 
-      const toggle = async () => {
-        if (audio.paused) {
+      const pauseOthers = (active) => {
+        players.forEach((item) => {
+          if (item !== active && !item.audio.paused) {
+            item.audio.pause();
+            render(item);
+          }
+        });
+      };
+
+      const toggle = async (item) => {
+        if (item.audio.paused) {
+          pauseOthers(item);
           try {
-            await audio.play();
+            await item.audio.play();
           } catch {
-            playState.textContent = "暂停";
+            item.state.textContent = "暂停";
           }
         } else {
-          audio.pause();
+          item.audio.pause();
         }
-        render();
+        render(item);
       };
 
-      playButton.addEventListener("click", toggle);
-      audio.addEventListener("loadedmetadata", render);
-      audio.addEventListener("timeupdate", render);
-      audio.addEventListener("play", render);
-      audio.addEventListener("pause", render);
-      audio.addEventListener("ended", render);
+      const seek = (item, event) => {
+        if (!item.audio.duration) return;
+        const rect = item.bar.getBoundingClientRect();
+        const ratio = Math.min(Math.max((event.clientX - rect.left) / rect.width, 0), 1);
+        item.audio.currentTime = ratio * item.audio.duration;
+        render(item);
+      };
+
+      players.forEach((item) => {
+        item.button.addEventListener("click", () => toggle(item));
+        item.bar.addEventListener("click", (event) => seek(item, event));
+        item.audio.addEventListener("play", () => {
+          pauseOthers(item);
+          render(item);
+        });
+        item.audio.addEventListener("loadedmetadata", () => render(item));
+        item.audio.addEventListener("timeupdate", () => render(item));
+        item.audio.addEventListener("pause", () => render(item));
+        item.audio.addEventListener("ended", () => render(item));
+        render(item);
+      });
 
       window.addEventListener("load", () => {
-        audio.play().catch(() => {
-          render();
+        players[0].audio.play().catch(() => {
+          render(players[0]);
         });
       });
     </script>
